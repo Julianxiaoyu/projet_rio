@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container_home">  
+    <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12">    
+            <div class="retour_article">
+                <a href="{{ path('index') }}"><p>Retour</p></a>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="image_article">
+                <img src="{{ asset('uploads/' ~ epreuve.path) }}">
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="vote_article">
+                <div class="vote_article_description">
+                    <h3>{{ epreuve.name }}</h3>
+                    <p>Un grand concours est organisé à l'occasion de JO. Le gagnant recevrai un filet garnis (php, javascript, bootstrap et bière de poche. Pour avoir une chance d'être tiré au sort, veuillez voter pour votre sportif préféré lors de cette épreuve. Attention vous ne pouvez voter qu'une seule fois</p>
+                </div>
+                
+                {% if uservote is empty  %}
+                    <div class="vote_article_liste">
+                        <table>
+                        {% for participant in participants %}    
+                            <tr> 
+                                <td>{{ participant.firstname }} {{ participant.lastname }}</td>
+                                <td class="boutton_vote">
+                                    
+                                    <form method="post" action="{{ path("vote") }}">
+                                        <div class="col-md-12">
+                                            <input type="hidden" name="hidden" value="1"/>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <input type="hidden" name="idparticipant" value="{{ participant.id }}"/>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <input type="hidden" name="idepreuve" value="{{ epreuve.id }}"/>
+                                        </div>
+                                        <button type="submit" class="btn btn-success">Vote</button>
+                                    </form>
+
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="vote_article_liste">
+                        <p>Vous avez déja voté</p>
+                    </div>
+                {% endif %}
+
+                <div class="vote_article_resultat">
+                    <h3>Resultat du vote</h3>
+                    <table>
+                    {% for participant in liste_votes %}    
+                        <tr> 
+                            <td>{{ participant['firstname'] }} {{ participant['lastname'] }}</td>
+                            <td>{{ participant['nbvote'] }} votes</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="footer_home">
+                <p>
+                <img alt="fb-icone" src="{{ asset ('img/facebook.png') }}"/>
+                <img alt="twitter-icone" src="{{ asset ('img/twitter.png') }}"/>
+                <img alt="google_icone" src="{{ asset ('img/googleplus.png') }}"/>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

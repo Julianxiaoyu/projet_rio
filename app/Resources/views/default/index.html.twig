@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="container_home">  
+    <div class="col-md-8 col-md-offset-2">
+        <div class="modal fade" id="login_modal" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                        {% if error %}
+                            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+                    <form action="{{ path("fos_user_security_check") }}" method="post">
+                        <div class="modal-header">
+                            Entrez vos identifiant de connection ci dessous:
+                        </div>
+                        <div class="modal-body">
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+                            <label for="username">{{ 'security.login.username'|trans }}</label>
+                            <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" /></br>
+
+                            <label for="password">{{ 'security.login.password'|trans }}</label>
+                            <input type="password" id="password" name="_password" required="required" /></br>
+
+                            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                            <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label></br>
+
+
+                       
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">    
+            <div class="entete_home">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Bienvenue {{ app.user.username }}</p>
+                        <a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
+                    {% else %}
+                        <p><button type="button" class="connect_button btn btn-default navbar-btn" data-toggle="modal" data-target="#login_modal"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Se connecter</button></p>
+                    {% endif %}                
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="epreuves_home">
+                <h1>Prochaines épreuves</h1>
+                <div class="col-md-12 block_article_home">
+                {% for epreuve in ders_epreuves %}
+                    <div class="col-md-4 one_article_home">
+                        <div class="article_content_home">
+                            <div class="article_content_home_image">
+                                <img src="{{ asset('uploads/' ~ epreuve.path) }}">
+                            </div>
+                            <div class="article_content_home_text">
+                                <h3>{{ epreuve.name }}</h3>
+                                <p>{{ epreuve.description }}</p>
+                                <a href="{{ path('article', { 'id': epreuve.id }) }}"><p class"voir_article"><img alt="see_more" src="{{ asset ('img/more.png') }}"/></p></a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="media_home">
+                <div class="col-md-6 col-md-offset-1 block_media_home_youtube">
+                    <p>Youtube video</p>
+                </div>
+                <div class="col-md-4 block_media_home_text">
+                    <p>Description de ma vidéo youtube</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="footer_home">
+                <p>
+                <img alt="fb-icone" src="{{ asset ('img/facebook.png') }}"/>
+                <img alt="twitter-icone" src="{{ asset ('img/twitter.png') }}"/>
+                <img alt="google_icone" src="{{ asset ('img/googleplus.png') }}"/>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

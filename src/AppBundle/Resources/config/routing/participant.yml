@@ -1,0 +1,30 @@
+participant:
+    path:     /
+    defaults: { _controller: "AppBundle:Participant:index" }
+
+participant_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Participant:show" }
+
+participant_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Participant:new" }
+
+participant_create:
+    path:     /create
+    defaults: { _controller: "AppBundle:Participant:create" }
+    methods:  POST
+
+participant_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Participant:edit" }
+
+participant_update:
+    path:     /{id}/update
+    defaults: { _controller: "AppBundle:Participant:update" }
+    methods:  [POST, PUT]
+
+participant_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Participant:delete" }
+    methods:  [POST, DELETE]

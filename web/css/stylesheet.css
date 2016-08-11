@@ -1,0 +1,192 @@
+@font-face {
+font-family: 'Glyphicons Halflings';
+src: url('../fonts/glyphicons-halflings-regular.eot');
+src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+
+body{
+	background-color: #F1F1F1;
+}
+
+/*******Home Page********
+*************************/
+
+
+/*******Entete Page********/
+.entete_home {
+  background: url(../img/entete.jpg);
+  background-size: cover;
+  height:600px;
+  width:100%;
+  text-align: right;
+  padding: 15px;
+}
+
+.connect_button{
+	margin : 0;
+	background:none;
+	border: none;
+	color: white;
+	font-size:25px;
+}
+
+.connect_button:hover{
+	margin : 0;
+	background:none;
+	border: none;
+	color: black;
+	font-size:25px;
+}
+
+.entete_home p{
+	color: white;
+	font-size:25px;
+	margin-bottom:0px;
+}
+
+.entete_home a{
+	color: blue;
+	font-size:20px;
+	margin-bottom:0px;
+}
+
+/*******Modale********/
+
+.modal-header{
+	background-color:blue;
+	color: white;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+/*******Article********/
+
+.epreuves_home {
+}
+
+.one_article_home {
+	padding: 5px;
+}
+
+.article_content_home {
+	height: 350px;
+}
+
+.article_content_home_image {
+	height: 200px;
+}
+
+.article_content_home_image img{
+	width:100%;
+	height:100%;
+}
+
+.article_content_home_text img {
+	width: 80px;
+	height: 30px;
+	text-align: right;
+}
+
+.article_content_home_text{
+	border: solid black 1px;
+	height: 150px;
+	padding: 5px;
+}
+
+.article_content_home_text h3{
+	margin-top: 5px;
+}
+
+/*******Media********/
+
+.media_home {
+  background: url(../img/anneaux.jpg);
+  background-size: cover;
+  height:500px;
+  width:100%;
+  margin-top:50px;
+  margin-bottom:50px;
+  padding-top:100px;
+  padding-bottom:100px;
+}
+
+.block_media_home_youtube{
+	background-color: black;
+	color: red;
+	height:300px;
+	padding-top:100px;
+	font-size: 50px;
+	text-align: center;
+}
+
+.block_media_home_text{
+	background-color: blue;
+	color: white;
+	height:300px;
+}
+
+/*******Footer********/
+.footer_home {
+  background-color: blue;
+  height:100px;
+  padding-top:20px;
+}
+
+.footer_home p {
+  text-align: center;
+}
+
+.footer_home img {
+  	width: 60px;
+	height: 60px;
+	margin-left:10px;
+	margin-right:10px;
+}
+
+
+/*******Article Page********
+*************************/
+
+/*******Entete ********/
+
+.retour_article{
+	height: 40px;
+	font-size: 25px;
+	color: blue;
+}
+
+.image_article{
+	height: 400px;
+}
+
+.image_article img{
+	width:100%;
+	height:100%;
+}
+
+/*******Vote article ********/
+
+.vote_article{
+	margin-top: 40px;
+	margin-bottom: 60px;
+	padding-left:30px;
+	padding-right:30px;
+}
+
+.vote_article_description{
+	margin-bottom:40px;
+}
+
+.vote_article_description h3{
+	margin-bottom:40px;
+	text-align: center;
+}
+
+.vote_article_liste{
+	margin-bottom:40px;
+	border: black 1px solid;
+	padding: 20px;
+	height: 300px;
+	font-size: 25px;
+	overflow: scroll;
+}

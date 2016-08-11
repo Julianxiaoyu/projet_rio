@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome to Rio!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/stylesheet.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css') }}">
+  
+        <script type="text/javascript" src="{{ asset('js/jquery-2.2.3.min.js') }}" ></script>
+        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}" ></script>
+        <script type="text/javascript" charset="utf8" src="{{ asset('https://cdn.datatables.net/1.10.12/js/jquery.dataTables.js') }}"></script>
+        <script src="{{ asset('https://code.highcharts.com/highcharts.js')}}"></script>
+        <script src="{{ asset('https://code.highcharts.com/modules/exporting.js')}}"></script>   
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
